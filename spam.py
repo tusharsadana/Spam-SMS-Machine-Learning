@@ -39,3 +39,21 @@ plt.plot(word_freq_df.occurrences)
 plt.show()
 
 print (data_train_count.shape, labels_train.shape, data_test_count.shape)
+
+
+
+
+from sklearn.linear_model import LogisticRegression
+classifier = LogisticRegression(random_state=0)
+classifier.fit(data_train_count,labels_train)
+
+y_pred2 = classifier.predict(data_test_count)
+
+from sklearn.metrics import confusion_matrix
+cm = confusion_matrix(labels_test,y_pred2)
+
+sc = classifier.score(data_test_count,labels_test)
+
+    
+check = pd.DataFrame(labels_test)
+check2 = pd.DataFrame(y_pred2)
