@@ -59,7 +59,7 @@ check = pd.DataFrame(labels_test)
 check2 = pd.DataFrame(y_pred2)
 
 from sklearn.neighbors import KNeighborsClassifier
-classifier1 = KNeighborsClassifier(n_neighbors =5, metric ='minkowski', p=2)
+classifier1 = KNeighborsClassifier(n_neighbors =2, metric ='minkowski', p=2)
 classifier1.fit(data_train_count,labels_train)
 
 y_pred3 = classifier1.predict(data_test_count)
@@ -83,7 +83,7 @@ sc2 = classifier2.score(data_test_count,labels_test)
 
 
 from sklearn.ensemble import RandomForestClassifier
-classifier3 = RandomForestClassifier(n_estimators = 10,criterion = 'entropy', random_state =0)
+classifier3 = RandomForestClassifier(n_estimators = 55,criterion = 'entropy', random_state =0)
 
 classifier3.fit(data_train_count,labels_train)
 
