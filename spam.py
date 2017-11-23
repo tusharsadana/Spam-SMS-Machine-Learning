@@ -57,3 +57,39 @@ sc = classifier.score(data_test_count,labels_test)
     
 check = pd.DataFrame(labels_test)
 check2 = pd.DataFrame(y_pred2)
+
+from sklearn.neighbors import KNeighborsClassifier
+classifier1 = KNeighborsClassifier(n_neighbors =5, metric ='minkowski', p=2)
+classifier1.fit(data_train_count,labels_train)
+
+y_pred3 = classifier1.predict(data_test_count)
+
+check3 = pd.DataFrame(y_pred3)
+
+cm1 = confusion_matrix(labels_test,y_pred3)
+
+sc1 = classifier1.score(data_test_count,labels_test)
+
+from sklearn.tree import DecisionTreeClassifier
+classifier2 = DecisionTreeClassifier(criterion = 'entropy', random_state =0)
+
+classifier2.fit(data_train_count,labels_train)
+
+y_pred4 = classifier2.predict(data_test_count)
+check4 = pd.DataFrame(y_pred4)
+
+cm2 = confusion_matrix(labels_test,y_pred4)
+sc2 = classifier2.score(data_test_count,labels_test)
+
+
+from sklearn.ensemble import RandomForestClassifier
+classifier3 = RandomForestClassifier(n_estimators = 10,criterion = 'entropy', random_state =0)
+
+classifier3.fit(data_train_count,labels_train)
+
+y_pred5 = classifier3.predict(data_test_count)
+check5 = pd.DataFrame(y_pred5)
+
+cm3 = confusion_matrix(labels_test,y_pred4)
+sc3 = classifier3.score(data_test_count,labels_test)
+
